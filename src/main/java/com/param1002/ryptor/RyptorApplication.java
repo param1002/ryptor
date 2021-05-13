@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RyptorApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RyptorApplication.class, args);
-	}
+    public static void main(final String[] args) {
+
+        SpringApplication.run(RyptorApplication.class, args);
+    }
 
 }
