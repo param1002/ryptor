@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 
 @RestController
@@ -22,7 +24,7 @@ public class PasswordController {
     }
 
     @PostMapping
-    public void save(@RequestBody final Password request) {
+    public void save(@RequestBody final Password request) throws InvalidKeySpecException, NoSuchAlgorithmException {
 
         passwordService.add(request);
     }
