@@ -7,6 +7,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -21,7 +23,7 @@ class PasswordServiceTest {
     private PasswordService target;
 
     @BeforeEach
-    void setup() {
+    void setup() throws InvalidKeySpecException, NoSuchAlgorithmException {
 
         final Password password = Password.builder().id("12345").name("abcd").value("secret").build();
         target.add(password);
@@ -39,7 +41,7 @@ class PasswordServiceTest {
     }
 
     @Test
-    void shouldAddPasswordForGivenRequest() {
+    void shouldAddPasswordForGivenRequest() throws InvalidKeySpecException, NoSuchAlgorithmException {
 
         final Password password = Password.builder().id("45678").name("efghi").value("secretKey").build();
         target.add(password);
