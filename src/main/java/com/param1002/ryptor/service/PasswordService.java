@@ -10,21 +10,26 @@ import java.util.Map;
 
 @Service
 public class PasswordService {
+
     private final Map<String, Password> passwords = new HashMap<>();
 
     public List<Password> retrieve() {
+
         return new ArrayList<>(passwords.values());
     }
 
-    public void add(Password password) {
+    public void add(final Password password) {
+
         passwords.put(password.getId(), password);
     }
 
-    public void update(Password password) {
+    public void update(final Password password) {
+
         passwords.put(password.getId(), password);
     }
 
-    public void delete(String id) {
+    public void delete(final String id) {
+
         passwords.remove(id);
     }
 

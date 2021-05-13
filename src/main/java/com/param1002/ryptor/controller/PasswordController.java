@@ -17,21 +17,25 @@ public class PasswordController {
 
     @GetMapping
     public ResponseEntity<List<Password>> show() {
+
         return ResponseEntity.ok(passwordService.retrieve());
     }
 
     @PostMapping
-    public void save(@RequestBody Password request) {
+    public void save(@RequestBody final Password request) {
+
         passwordService.add(request);
     }
 
     @PutMapping
-    public void update(@RequestBody Password request) {
+    public void update(@RequestBody final Password request) {
+
         passwordService.update(request);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable final String id) {
+
         passwordService.delete(id);
     }
 

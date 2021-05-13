@@ -6,8 +6,12 @@ import lombok.Data;
 @Data
 @Builder
 public class Password {
+
     private String id;
+
     private String name;
+
     private String value;
+
 }
 

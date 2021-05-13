@@ -22,13 +22,15 @@ class PasswordServiceTest {
 
     @BeforeEach
     void setup() {
+
         final Password password = Password.builder().id("12345").name("abcd").value("secret").build();
         target.add(password);
     }
 
     @Test
     void shouldGetPasswords_WhenInvokedRetrieve() {
-        List<Password> passwords = target.retrieve();
+
+        final List<Password> passwords = target.retrieve();
         assertThat(passwords).isNotNull();
         assertThat(passwords).hasSize(1);
         assertThat(passwords.get(0).getId()).isEqualTo("12345");
@@ -38,9 +40,10 @@ class PasswordServiceTest {
 
     @Test
     void shouldAddPasswordForGivenRequest() {
-        Password password = Password.builder().id("45678").name("efghi").value("secretKey").build();
+
+        final Password password = Password.builder().id("45678").name("efghi").value("secretKey").build();
         target.add(password);
-        Map<String, Password> passwords = target.retrieve().stream().collect(Collectors.toMap(Password::getId, Function.identity()));
+        final Map<String, Password> passwords = target.retrieve().stream().collect(Collectors.toMap(Password::getId, Function.identity()));
         assertThat(passwords).isNotNull();
         assertThat(passwords).hasSize(2);
         assertThat(passwords.get("12345").getId()).isEqualTo("12345");
@@ -51,9 +54,10 @@ class PasswordServiceTest {
 
     @Test
     void shouldUpdatePasswordsForGivenRequest() {
-        Password password = Password.builder().id("12345").name("efghi").value("secretKey").build();
+
+        final Password password = Password.builder().id("12345").name("efghi").value("secretKey").build();
         target.update(password);
-        List<Password> passwords = target.retrieve();
+        final List<Password> passwords = target.retrieve();
         assertThat(passwords).isNotNull();
         assertThat(passwords).hasSize(1);
         assertThat(passwords.get(0).getId()).isEqualTo("12345");
@@ -63,7 +67,9 @@ class PasswordServiceTest {
 
     @Test
     void shouldDeletePasswordForGivenId() {
+
         target.delete("12345");
         assertThat(target.retrieve()).hasSize(0);
     }
+
 }
