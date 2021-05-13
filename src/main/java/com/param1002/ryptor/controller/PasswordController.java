@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ryptor/passwords")
+@RequestMapping("/ryptor/v1/passwords")
 public class PasswordController {
 
     @Autowired
